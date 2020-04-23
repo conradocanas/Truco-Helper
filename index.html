@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Truco Helper</title>
+    <title>{{ titulo }}</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
@@ -57,14 +57,14 @@
               <!--Counter-->
               <v-list-item-content>
                 <div class="my-1 text-center display-2">
-                  0
+                  {{ contEllos }}
                 </div>
               </v-list-item-content>
 
               <!--Card Buttons-->
               <v-card-actions>
-                <v-btn text>+</v-btn>
-                <v-btn text>-</v-btn>
+                <v-btn text @click="aumentarEllos">+</v-btn>
+                <v-btn text @click="disminuirEllos">-</v-btn>
               </v-card-actions>
             </v-card>
 
@@ -80,14 +80,14 @@
               <!--Counter-->
               <v-list-item-content>
                 <div class="my-1 text-center display-2">
-                  0
+                  {{ contNos }}
                 </div>
               </v-list-item-content>
 
               <!--Card Buttons-->
               <v-card-actions>
-                <v-btn text>+</v-btn>
-                <v-btn text>-</v-btn>
+                <v-btn text @click="aumentarNos">+</v-btn>
+                <v-btn text @click="disminuirNos">-</v-btn>
               </v-card-actions>
             </v-card>
           </v-row>
@@ -95,7 +95,7 @@
           <!--Reset Button-->
           <v-layout justify-center>
             <v-flex class="my-4" xs6>
-              <v-btn block class="purple darken-3">
+              <v-btn block class="purple darken-3" @click="reiniciar">
                 Reiniciar
               </v-btn>
             </v-flex>
