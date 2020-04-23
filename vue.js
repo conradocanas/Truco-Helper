@@ -5,5 +5,5 @@ const app = new Vue({
     }),
     data: () => ({
       drawer: null,
-    })
+    }),
   })
