@@ -4,6 +4,7 @@ const app = new Vue({
       theme: { dark: true },
     }),
     data: () => ({
+      dialog: false,
       drawer: null,
       titulo: 'Truco Helper',
       contEllos: 0,
@@ -29,7 +30,9 @@ const app = new Vue({
         }
       },
       disminuirNos(){
-        this.contNos--
+        if(this.contNos > 0){
+          this.contNos--
+        }
       },
       disminuirEllos(){
         if(this.contEllos > 0){
@@ -40,6 +43,7 @@ const app = new Vue({
       reiniciar(){
         this.contEllos = 0;
         this.contNos = 0;
-      }
+      },
+
     },
   })

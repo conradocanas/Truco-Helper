@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ titulo }}</title>
+    <title>Truco Helper</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
@@ -36,7 +36,7 @@
       <!--Title Nav-->
       <v-app-bar app clipped-left>
         <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-        <v-toolbar-title>Truco Helper</v-toolbar-title>
+        <v-toolbar-title>{{ titulo }}</v-toolbar-title>
       </v-app-bar>
       
       <!--Body-->
@@ -93,22 +93,31 @@
           </v-row>
 
           <!--Reset Button-->
-          <v-layout justify-center>
-            <v-flex class="my-4" xs6>
-              <v-btn block class="purple darken-3" @click="reiniciar">
-                Reiniciar
-              </v-btn>
-            </v-flex>
-          </v-layout>
+          <v-row justify="center" class="my-4">
+            <v-dialog persistent v-model="dialog" max-width="300">
+              <template v-slot:activator="{ on }">
+                <v-btn color="purple" dark v-on="on">Reiniciar</v-btn>
+              </template>
+              <v-card>
+                <v-card-title class="headline">Reinicio</v-card-title>
+                <v-card-text>¿Desea reiniciar el juego?</v-card-text>
+                <v-card-actions>
+                  <v-spacer></v-spacer>
+                  <v-btn color="purple lighten-2" text @click="dialog = false">NO</v-btn>
+                  <v-btn color="purple lighten-2" text @click="[reiniciar(), dialog = false]">SI</v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
+          </v-row>
           
         </v-container>
       </v-content>
-
-      
+    
       <!--Footer-->
       <v-footer app>
         <span>&copy; 2020</span>
       </v-footer>
+
     </v-app>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -116,4 +125,5 @@
   <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
   <script src="vue.js"></script>
 </body>
+
 </html>
