@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
 </head>
 <body>
@@ -72,7 +73,7 @@
             <v-card class="mx-auto" max-width="344" outlined>
               <v-list-item three-line>
                 <v-list-item-content>
-                    <div class="overline mb-4 text-center">NOSOTROS</div>
+                    <div class="overline mb-4 text-center"><v-icon>scatter_plot</v-icon></div>
                     <v-list-item-title class="headline mb-1 text-center">NOS</v-list-item-title>
                 </v-list-item-content>         
               </v-list-item>
@@ -92,11 +93,11 @@
             </v-card>
           </v-row>
 
-          <!--Reset Button-->
+          <!--Reset Button + Dialog-->
           <v-row justify="center" class="my-4">
             <v-dialog persistent v-model="dialog" max-width="300">
               <template v-slot:activator="{ on }">
-                <v-btn color="purple" dark v-on="on">Reiniciar</v-btn>
+                <v-btn color="purple" dark v-on="on"><v-icon>autorenew</v-icon>Reiniciar</v-btn>
               </template>
               <v-card>
                 <v-card-title class="headline">Reinicio</v-card-title>
