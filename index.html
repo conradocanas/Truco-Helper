@@ -57,7 +57,7 @@
 
               <!--Counter-->
               <v-list-item-content>
-                <div class="my-1 text-center display-2">
+                <div class="my-1 text-center display-2" style="color:rgb(165, 162, 162); text-shadow: 0px 0px 3px white;">
                   {{ contEllos }}
                 </div>
               </v-list-item-content>
@@ -80,7 +80,7 @@
 
               <!--Counter-->
               <v-list-item-content>
-                <div class="my-1 text-center display-2">
+                <div class="my-1 text-center display-2" style="color: rgb(165, 162, 162); text-shadow: 0px 0px 3px white;">
                   {{ contNos }}
                 </div>
               </v-list-item-content>
@@ -97,7 +97,7 @@
           <v-row justify="center" class="my-4">
             <v-dialog persistent v-model="dialog" max-width="300">
               <template v-slot:activator="{ on }">
-                <v-btn color="purple" dark v-on="on"><v-icon>autorenew</v-icon>Reiniciar</v-btn>
+                <v-btn color="purple darken-3" dark v-on="on"><v-icon>autorenew</v-icon>Reiniciar</v-btn>
               </template>
               <v-card>
                 <v-card-title class="headline">Reinicio</v-card-title>
