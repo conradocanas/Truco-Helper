@@ -82,7 +82,7 @@
           <v-row justify="center" class="my-4 pt-0 pb-4">
             <v-dialog persistent v-model="dialog" max-width="300">
               <template v-slot:activator="{ on }">
-                <v-btn color="purple darken-3" dark v-on="on"><v-icon>autorenew</v-icon>Reiniciar Partida</v-btn>
+                <v-btn color="primary" dark v-on="on"><v-icon>autorenew</v-icon>Reiniciar Partida</v-btn>
               </template>
               <v-card>
                 <v-card-title class="headline">Reinicio</v-card-title>
@@ -129,7 +129,7 @@
                 </v-card>
               </v-slide-item>
             </v-slide-group>
-            <v-alert type="info" dense dismissible style="margin-bottom: -10px">
+            <v-alert type="info" dense dismissible style="margin-bottom: -10px; font-size: 12px;">
               Seleccioná tus cartas del mismo palo.
             </v-alert>
           </v-sheet>
