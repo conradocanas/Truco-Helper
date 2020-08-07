@@ -2,7 +2,7 @@ const app = new Vue({
     el: '#app',
     opts: {
       theme: {
-          dark: true
+          dark: false
       }
     },
     vuetify: new Vuetify(this.opts),
@@ -13,6 +13,7 @@ const app = new Vue({
       contEllos: 0,
       contNos: 0,
       goDark: true,
+      trainingMode: true,
       cartas: ["4", "5", "6", "7", "10", "11", "12"]
     }),
     methods: {
@@ -61,7 +62,8 @@ const app = new Vue({
       },
       trainingWheels() {
         if (this.modoPrincipante == true) {
-          
+          alert("Princ")
+            document.getElementsByClassName("training")
         }
       }
   }
