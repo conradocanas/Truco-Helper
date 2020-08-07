@@ -37,22 +37,21 @@
             <v-card class="mx-auto" max-width="50%" outlined>
               <v-list-item three-line>
                 <v-list-item-content>
-                    <div class="overline mb-4 text-center">ELLOS</div>
                     <v-list-item-title class="headline mb-1 text-center">ELLOS</v-list-item-title>
                 </v-list-item-content>            
               </v-list-item>
 
               <!--Counter-->
               <v-list-item-content>
-                <div class="my-1 text-center display-2" style="color:rgb(165, 162, 162); text-shadow: 0px 0px 3px white;">
+                <div class="my-1 text-center display-4" style="color:rgb(165, 162, 162); text-shadow: 0px 0px 3px white;">
                   {{ contEllos }}
                 </div>
               </v-list-item-content>
 
               <!--Card Buttons-->
               <v-card-actions>
-                <v-btn text @click="aumentarEllos">+</v-btn>
-                <v-btn text @click="disminuirEllos">-</v-btn>
+                <v-btn text @click="aumentarEllos" style="font-size:30px;">+</v-btn>
+                <v-btn text @click="disminuirEllos" style="font-size:30px;">-</v-btn>
               </v-card-actions>
             </v-card>
 
@@ -60,22 +59,21 @@
             <v-card class="mx-auto" max-width="50%" outlined>
               <v-list-item three-line>
                 <v-list-item-content>
-                    <div class="overline mb-4 text-center"><v-icon>scatter_plot</v-icon></div>
                     <v-list-item-title class="headline mb-1 text-center">NOS</v-list-item-title>
                 </v-list-item-content>         
               </v-list-item>
 
               <!--Counter-->
               <v-list-item-content>
-                <div class="my-1 text-center display-2" style="color: rgb(165, 162, 162); text-shadow: 0px 0px 3px white;">
+                <div class="my-1 text-center display-4" style="color: rgb(165, 162, 162); text-shadow: 0px 0px 3px white;">
                   {{ contNos }}
                 </div>
               </v-list-item-content>
 
               <!--Card Buttons-->
               <v-card-actions>
-                <v-btn text @click="aumentarNos">+</v-btn>
-                <v-btn text @click="disminuirNos">-</v-btn>
+                <v-btn text @click="aumentarNos" style="font-size:30px;">+</v-btn>
+                <v-btn text @click="disminuirNos" style="font-size:30px;">-</v-btn>
               </v-card-actions>
             </v-card>
           </v-row>
@@ -131,7 +129,9 @@
                 </v-card>
               </v-slide-item>
             </v-slide-group>
-            <center style="margin-top:-20px; padding-bottom: 10px">TENES <strong id="puntos-envido">20</strong> PUNTOS DE ENVIDO</strong></center>
+            <v-alert type="info" dense dismissible style="margin-bottom: -10px">
+              Seleccioná tus cartas del mismo palo.
+            </v-alert>
           </v-sheet>
 <br>
           <v-sheet
