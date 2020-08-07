@@ -11,5 +11,5 @@
 ### Lenguajes y tecnologías utilizadas:
 - HTML
 - CSS
-- VUE.js
+- Vue.js
 - Vuetify
