@@ -12,27 +12,15 @@
 </head>
 <body>
   <div id="app">
-    <v-app id="inspire">
+    <v-app id="inspire" :dark="setTheme">
       <!--Nav-->
       <v-navigation-drawer v-model="drawer" app clipped >
-        <v-list dense>
-          <v-list-item @click="">
-            <v-list-item-content>
-              <v-list-item-title>¿Como jugar Truco?</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-          <v-list-item @click="">
-            <v-list-item-content>
-              <v-list-item-title>¿Como jugar Envido?</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-          <v-list-item @click="">
-            <v-list-item-content>
-              <v-list-item-title>Opciones</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        </v-list>
+        <v-container fluid>
+          <v-switch v-model="modoPrincipante" :label="`Modo Principiante`"></v-switch>
+          <v-switch :label="`Dark Mode`" v-model="goDark"></v-switch>
+        </v-container>
       </v-navigation-drawer>
+
 
       <!--Title Nav-->
       <v-app-bar app clipped-left>
@@ -44,10 +32,9 @@
 
       <v-content>
         <v-container>
-          <v-row>
-
+          <v-row class="pa-2">
             <!------------Card ELLOS------------->
-            <v-card class="mx-auto" max-width="344" outlined>
+            <v-card class="mx-auto" max-width="50%" outlined>
               <v-list-item three-line>
                 <v-list-item-content>
                     <div class="overline mb-4 text-center">ELLOS</div>
@@ -70,7 +57,7 @@
             </v-card>
 
             <!----------Card NOS---------->
-            <v-card class="mx-auto" max-width="344" outlined>
+            <v-card class="mx-auto" max-width="50%" outlined>
               <v-list-item three-line>
                 <v-list-item-content>
                     <div class="overline mb-4 text-center"><v-icon>scatter_plot</v-icon></div>
@@ -94,10 +81,10 @@
           </v-row>
 
           <!--Reset Button + Dialog-->
-          <v-row justify="center" class="my-4">
+          <v-row justify="center" class="my-4 pt-0 pb-4">
             <v-dialog persistent v-model="dialog" max-width="300">
               <template v-slot:activator="{ on }">
-                <v-btn color="purple darken-3" dark v-on="on"><v-icon>autorenew</v-icon>Reiniciar</v-btn>
+                <v-btn color="purple darken-3" dark v-on="on"><v-icon>autorenew</v-icon>Reiniciar Partida</v-btn>
               </template>
               <v-card>
                 <v-card-title class="headline">Reinicio</v-card-title>
@@ -110,15 +97,99 @@
               </v-card>
             </v-dialog>
           </v-row>
+
+          <v-sheet
+            class="mx-auto training"
+            elevation="8"
+            max-width="800"
+          >
+          <div style="font-size: 14px; margin-bottom:-20px; padding: 10px 0px 5px 25px">ENVIDO - CONTADOR DE PUNTOS</div>
+            <v-slide-group
+              v-model="model"
+              class="pa-4"
+              multiple
+            >
+              <v-slide-item
+                v-for="n in 7"
+                :key="n"
+                v-slot:default="{ active, toggle }"
+              >
+                <v-card
+                  :color="active ? 'primary' : 'grey lighten-1'"
+                  class="ma-3"
+                  height="50"
+                  width="50"
+                  @click="toggle"
+                >
+                  <v-row
+                    class="fill-height"
+                    align="center"
+                    justify="center"
+                  >
+                    <v-scale-transition>
+                      <v-icon
+                        v-if="active"
+                        color="white"
+                        size="36"
+                        v-text="'check_circle_outline'"
+                      ></v-icon>
+                    </v-scale-transition>
+                  </v-row>
+                </v-card>
+              </v-slide-item>
+            </v-slide-group>
+            <center style="margin-top:-20px; padding-bottom: 10px"><strong>TENES <span id="puntos-envido" style="color: rgb(255, 0, 0)">20</span> PUNTOS DE ENVIDO</strong></center>
+          </v-sheet>
+<br>
+          <v-sheet
+            class="mx-auto training"
+            elevation="8"
+            max-width="800"
+          >
+          <div style="font-size: 14px; margin-bottom:-20px; padding: 10px 0px 5px 25px">TRUCO - ORDEN DE CARTAS</div>
+            <v-slide-group
+              v-model="model"
+              class="pa-4"
+              multiple
+            >
+              <v-slide-item
+                v-for="n in cartas"
+                :key="n"
+                v-slot:default="{ active, toggle }"
+              >
+                <v-card
+                  :color="active ? 'primary' : 'grey lighten-1'"
+                  class="ma-3"
+                  height="50"
+                  width="50"
+                >
+                  <v-row
+                    class="fill-height"
+                    align="center"
+                    justify="center"
+                  >
+                    <v-scale-transition>
+                      <v-icon
+                        v-if="active"
+                        color="white"
+                        size="36"
+                        v-text="'check_circle_outline'"
+                      ></v-icon>
+                    </v-scale-transition>
+                  </v-row>
+                </v-card>
+              </v-slide-item>
+            </v-slide-group>
+          </v-sheet>
           
         </v-container>
       </v-content>
     
-      <!--Footer-->
+      <!--Footer
       <v-footer app>
         <span>&copy; 2020</span>
       </v-footer>
-
+      -->
     </v-app>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>

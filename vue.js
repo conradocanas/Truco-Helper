@@ -1,14 +1,19 @@
 const app = new Vue({
     el: '#app',
-    vuetify: new Vuetify({
-      theme: { dark: true },
-    }),
+    opts: {
+      theme: {
+          dark: true
+      }
+    },
+    vuetify: new Vuetify(this.opts),
     data: () => ({
       dialog: false,
       drawer: null,
       titulo: 'Truco Helper',
       contEllos: 0,
-      contNos: 0
+      contNos: 0,
+      goDark: true,
+      cartas: ["4", "5", "6", "7", "10", "11", "12"]
     }),
     methods: {
       aumentarNos(){
@@ -46,4 +51,18 @@ const app = new Vue({
       },
 
     },
+    computed: {
+      setTheme() {
+          if (this.goDark == true) {
+              return (this.$vuetify.theme.dark = true);
+          } else {
+              return (this.$vuetify.theme.dark = false);
+          }
+      },
+      trainingWheels() {
+        if (this.modoPrincipante == true) {
+          
+        }
+      }
+  }
   })
